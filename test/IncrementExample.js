@@ -4,30 +4,30 @@ const IncrementLong = artifacts.require("./IncrementLong.sol");
 const addTimes = getRandomRange(25,50);
 
 contract("IncrementShort", async accounts => {
-  it("Add 1 Time", async () => {
+  it("Increment 2 Time", async () => {
     const incrementShort = await IncrementShort.new();
-    const add = await incrementShort.add(10);
-	const add1 = await incrementShort.add(10);
+    const add = await incrementShort.increment();
+	const add1 = await incrementShort.increment();
 	
   });
 });
 
 
 contract("IncrementLong", async accounts => {
-  it("Add 1 Time", async () => {
+  it("Increment 2 Time", async () => {
     const incrementLong = await IncrementLong.new();
-    const add = await incrementLong.add(10);
-	const add1 = await incrementLong.add(10);
+    const add = await incrementLong.increment();
+	const add1 = await incrementLong.increment();
   });
 });
 
 
 contract("IncrementShort", async accounts => {
-  it("Add Multiple Time", async () => {
+  it("Increment Multiple Times", async () => {
     const incrementShort = await IncrementShort.new();
 	
 	for(var i =0; i < addTimes; i++){
-	   await incrementShort.add(10);
+	   await incrementShort.increment();
 	}
     
   });
@@ -35,11 +35,11 @@ contract("IncrementShort", async accounts => {
 
 
 contract("IncrementLong", async accounts => {
-  it("Add Multiple Time", async () => {
+  it("Increment Multiple Times", async () => {
     const incrementLong = await IncrementLong.new();
 	
 	for(var i =0; i < addTimes; i++){
-		await incrementLong.add(10);
+		await incrementLong.increment();
 	}	
     
   });
