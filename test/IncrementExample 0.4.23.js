@@ -1,31 +1,19 @@
 const IncrementShort = artifacts.require("./IncrementShort.sol");
 const IncrementLong = artifacts.require("./IncrementLong.sol");
 
-const addTimes = getRandomRange(25,50);
-
 contract("IncrementShort", async accounts => {
-  it("Increment Multiple Times", async () => {
+  it("Solidity Version 0.4.23", async () => {
     const incrementShort = await IncrementShort.new();
+		await incrementShort.increment();
+		await incrementShort.increment();
 	
-	for(var i =0; i < addTimes; i++){
-	   await incrementShort.increment();
-	}
-    
   });
 });
-
 
 contract("IncrementLong", async accounts => {
-  it("Increment Multiple Times", async () => {
+  it("Solidity Version 0.4.23", async () => {
     const incrementLong = await IncrementLong.new();
-	
-	for(var i =0; i < addTimes; i++){
 		await incrementLong.increment();
-	}	
-    
+		await incrementLong.increment();
   });
 });
-
-function getRandomRange(min, max) {
-    return Math.random() * (max - min) + min;
-}
